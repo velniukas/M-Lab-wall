@@ -1,16 +1,10 @@
 import mpe.config.*;
 import mpe.client.*;
 
-import processing.opengl.*;
-import javax.media.opengl.*;
-import java.util.*;
-
-PGraphicsOpenGL pgl;
-GL gl;
-
 TCPClient cl;
 String ip;
 String configname;
+Logo logo;
 
 void setup() {
   try {
@@ -42,6 +36,9 @@ void setup() {
   background(255);
   smooth();
   noStroke();
+  
+  logo = new Logo(cl.getMWidth()/2+180, cl.getMHeight()/2);
+  
   // Important, must start the client!
   cl.start();
 }
@@ -59,141 +56,24 @@ void composeClientConfig() {
  void frameEvent(TCPClient c) {
      background(0);
 
-    // text
-    pushMatrix();
-    translate(0, cl.getMHeight()/2);
-    fill(#ffffff);
-    textSize(144); 
-    
-    text("M-Lab", 15, 50);
-    popMatrix();
+    renderText();
   
-  
-  // blending setup
-    pgl = (PGraphicsOpenGL) g;
-    gl = pgl.beginGL();
-    gl.glDisable(GL.GL_DEPTH_TEST);
-    gl.glEnable(GL.GL_BLEND);
-    //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
-    gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
-    //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
-    gl.glBlendEquationSeparate(GL.GL_FUNC_ADD, GL.GL_FUNC_SUBTRACT);
-    gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-    gl.setSwapInterval(1);
-    pgl.endGL();
-  // end blending setup
-   
-    
-    // rotating logo
-    pushMatrix();
-    // centre image
-    translate(cl.getMWidth()/2+180, cl.getMHeight()/2);
-    // rotate
-    rotate(radians(frameCount % 360));    
-    // scale
-    scale(0.8);
-    drawLogo();
-    popMatrix();
-
+    logo.calc();
+    logo.display();
 }
 
 void draw(){
 }
 
-void drawLogo() {
+void renderText() {
+  // text
   pushMatrix();
-  color c;
-  int offset = 40;
-
-  drawBlue(offset,135);
-  drawOrange(offset,-135);
-  drawGreen(offset,-45);
-  drawMagenta(offset,45);
-  popMatrix();
-}
-
-void drawBlue(int offset, int angle){
-    pgl = (PGraphicsOpenGL) g;
-    gl = pgl.beginGL();
-    gl.glDisable(GL.GL_DEPTH_TEST);
-    gl.glEnable(GL.GL_BLEND);
-    gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_SUBTRACT);
-    gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-    gl.setSwapInterval(1);
-    pgl.endGL();
+  translate(0, cl.getMHeight()/2);
+  fill(#ffffff);
+  textSize(144); 
     
-  // blue block and circle
-  pushMatrix();
-  //rotate and offset
-  rotate(radians(angle));
-  translate(offset,0);
-  // block
-  color c = #3e6d97;
-  fill(c);
-  rect(0,0,200,110);
-  // circle
-  c = #628291;
-  fill(c,200); 
-  ellipse(145,125,110,110);
+  text("M-Lab", 15, 50);
   popMatrix();
 }
 
-void drawOrange(int offset, int angle){
-    pgl = (PGraphicsOpenGL) g;
-    gl = pgl.beginGL();
-    gl.glDisable(GL.GL_DEPTH_TEST);
-    gl.glEnable(GL.GL_BLEND);
-    //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
-    gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
-    //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
-    gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_ADD);
-    gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-    gl.setSwapInterval(1);
-    pgl.endGL();
-    
-  // orange blocks
-  pushMatrix();
-  // rotate and offset
-  rotate(radians(-135));
-  translate(offset, 0);
-  color c = #d88a26;  
-  fill(c, 10);
-  rect(0,0,250,150);
-  
-  c = #c78459;
-  fill(c,200);
-  rect(-30,70,170,100);
-  popMatrix();
-}
 
-void drawGreen(int offset, int angle) {
-  // green block and white circle
-  pushMatrix();
-  // rotate and offset
-  rotate(radians(-45));
-  translate(offset,0);
-  color c = #888c37;
-  fill(c);
-  rect(0,0,200,120);
-  
-  c = #000000;
-  fill(c,255);
-  ellipse(140,90,90,90);
-  popMatrix();  
-}
-
-void drawMagenta(int offset, int angle) {
-  // magenta blocks
-  pushMatrix();
-  // rotate and offset
-  rotate(radians(45));
-  translate(offset,0);
-  color c = #982d45;
-  fill(c);
-  rect(0,0,180,180);
-  
-  c = #801f28;
-  fill(c,230);
-  rect(0,0,120,100);
-  popMatrix();  
-}
