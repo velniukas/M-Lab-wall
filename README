@@ -1,0 +1,13 @@
+File Structure
+
+mlabwall/
+	mlabwall.pde							# main application with mpe code additions
+	code/
+		mpe.pde							# mpe library redistributable
+	config/
+		mpeConfigShared.ini					# server portion of config
+		local/
+			<ipaddress>.ini					# local portion(s) of config named by ipaddress
+		temp/
+			full-config-<ipaddress>.ini			# temporary config files created by app - join of shared server and local config files
+
