@@ -1,0 +1,27 @@
+{
+    "server": "192.168.8.2",
+    "port": "9002",
+    "masterDimensions": "2048,1536",
+    "clients": [
+        {
+            "id": 0,
+            "localLocation": "0,0",
+            "localScreenSize": "1024,768"
+        },
+        {
+            "id": 1,
+            "localLocation": "1024,0",
+            "localScreenSize": "1024,768"
+        },
+        {
+            "id": 2,
+            "localLocation": "0,768",
+            "localScreenSize": "1024,768"
+        },
+        {
+            "id": 3,
+            "localLocation": "1024,768",
+            "localScreenSize": "1024,768"
+        }
+    ]
+}
