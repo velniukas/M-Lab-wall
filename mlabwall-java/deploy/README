@@ -1,0 +1,28 @@
+This is a java port of the original processing code. It references the (local) processing and Most-Pixels-Ever (mpe) JAR's.
+I have created functionality to allow the use of a single common .json config file to ease the management, deployability and readability of the configuration
+The configuration file takes 3 parameters from the client:
+1. ipaddress
+2. display number (0..n)
+3. Path to save the temp ini file to
+
+
+File Structure
+/mlabwall
+	/src
+		mlabwall.java				# main class port of the M-Lab-Wall - contains Logo and Text and configuration management logic; it forms the crux of converting Logo into mpe-aware
+		Logo.java					# port of the Logo.pde processing shape object
+		ConfigReader.java			# Loads the setup.json file, and creates a temporary ini file to be used by the client (as per current mpe requirements)
+		ConfigData.java				# Class to represent setup.json file
+		ClientConfigData.java		# Class to represent the client list in the setup.json file
+		
+	/lib
+		mpe.jar						# most-pixels-ever client library
+		commons-cli.jar				# apache commons cli library
+		core.jar					# processing core
+		gson-2.0.jar				# google json library
+	
+	/build
+		build-jar.xml				# ant build script for executable jar for whole project
+		
+	/config
+		setup.json					# single shared configuration file for all the clients

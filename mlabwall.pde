@@ -7,31 +7,34 @@ String configname;
 Logo logo;
 
 void setup() {
-  try {
-    InetAddress local = InetAddress.getLocalHost();
-    ip = local.getHostAddress();
-    println(ip);
-  } catch( UnknownHostException e ) {
-    println( "Unknown Host Exception:" );
-    println( e );
-    exit();
-  }
-  String p[] = splitTokens(ip, ".");
-  String[] cn = new String[3];
-  cn[0] = "config/temp/full-config-";
-  cn[1] = ip;
-  cn[2] = ".ini";
-  configname = join(cn, "");
+//  try {
+//    InetAddress local = InetAddress.getLocalHost();
+//    ip = local.getHostAddress();
+//    println(ip);
+//  } catch( UnknownHostException e ) {
+//    println( "Unknown Host Exception:" );
+//    println( e );
+//    exit();
+//  }
+//  String p[] = splitTokens(ip, ".");
+//  String[] cn = new String[3];
+//  cn[0] = "config/temp/full-config-";
+//  cn[1] = ip;
+//  cn[2] = ".ini";
+//  configname = join(cn, "");
+  configname = "z:/Dropbox/mlab/mlabwall/config/temp/full-config-192.168.8.2.ini";
   println(configname);
   
-  composeClientConfig();
+ // composeClientConfig();
   
   // make a new Client using an INI file
   // sketchPath() is used so that the INI file is local to the sketch
   cl = new TCPClient(sketchPath(configname), this);
   
   // the size is determined by the client's local width and height
-  size(cl.getLWidth(), cl.getLHeight(), OPENGL);
+//  size(cl.getLWidth(), cl.getLHeight(), OPENGL);
+//  hint(ENABLE_OPENGL_4X_SMOOTH); 
+  size(cl.getLWidth(), cl.getLHeight());
   hint(ENABLE_OPENGL_4X_SMOOTH); 
   background(255);
   smooth();

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project mlabwall with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="E:/dev/src/mlabwall/deploy/mlabwall.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.messina.mlab.wall.mlabwall"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ mpe.jar gson-2.0.jar core.jar commons-cli-1.2.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="E:/dev/src/mlabwall/deploy"/>
+            <zipfileset dir="E:\dev\src\mlabwall\lib" includes="mpe.jar"/>
+            <zipfileset dir="E:\dev\src\mlabwall\lib" includes="gson-2.0.jar"/>
+            <zipfileset dir="E:\dev\src\mlabwall\lib" includes="core.jar"/>
+            <zipfileset dir="E:\dev\src\mlabwall\lib" includes="commons-cli-1.2.jar"/>
+        </jar>
+    </target>
+</project>

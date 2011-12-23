@@ -1,0 +1,29 @@
+<project name='ProcessingBuild' default='dist' basedir='.'>
+
+   <description>
+       ProcessingBuild
+   </description>
+
+   <property name='processingDir' location='C:\processing\'/>
+   <property name='processingJars'  value='lib'/>
+   <property name='processingJavaJars' value='..\Program Files\Java\jdk1.7.0_02\lib'/>
+   <property file='args.properties'/>
+
+   <target name='processing' description='run the pde'>
+       <echo message='java ${args}'/>
+       <java classname='processing.app.Commander' 
+             fork='true'
+             dir='${processingDir}'>
+
+             <classpath>
+                 <fileset dir='${processingDir}\${processingJavaJars}'>
+                     <include name='**/*.jar'/>
+                 </fileset>
+                 <fileset dir='${processingDir}\${processingJars}'>
+                     <include name='**/*.jar'/>
+                 </fileset>
+             </classpath>
+             <arg line='${args}'/>
+         </java>
+     </target>
+</project>

@@ -1,0 +1,31 @@
+{
+    "server": "192.168.8.2",
+    "port": "9002",
+    "masterDimensions": "2048,768",
+    "clients": [
+        {
+        	"display": "0",
+            "ipaddress": "192.168.8.2",
+            "localLocation": "0,0",
+            "localScreenSize": "1024,768"
+        },
+        {
+        	"display": "1",
+            "ipaddress": "192.168.8.2",
+            "localLocation": "1024,0",
+            "localScreenSize": "1024,768"
+        },
+        {
+        	"display": "0",
+            "ipaddress": "192.168.8.4",
+            "localLocation": "0,768",
+            "localScreenSize": "1024,768"
+        },
+        {
+        	"display": "1",
+            "ipaddress": "192.168.8.4",
+            "localLocation": "1024,768",
+            "localScreenSize": "1024,768"
+        }
+    ]
+}

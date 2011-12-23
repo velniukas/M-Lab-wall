@@ -1,9 +1,9 @@
-import processing.opengl.*;
-import javax.media.opengl.*;
+//import processing.opengl.*;
+//import javax.media.opengl.*;
 import java.util.*;
 
-PGraphicsOpenGL pgl;
-GL gl;
+//PGraphicsOpenGL pgl;
+//GL gl;
 
 class Logo {
   
@@ -28,7 +28,7 @@ class Logo {
     }
     
     void display() {
-      logoBlend();
+  //    logoBlend();
       
       // rotating logo
       pushMatrix();
@@ -54,31 +54,31 @@ class Logo {
       popMatrix();
     }
     
-    void logoBlend() {
-      // blending setup
-      pgl = (PGraphicsOpenGL) g;
-      gl = pgl.beginGL();
-      gl.glDisable(GL.GL_DEPTH_TEST);
-      gl.glEnable(GL.GL_BLEND);
-      //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
-      gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
-      //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
-      gl.glBlendEquationSeparate(GL.GL_FUNC_ADD, GL.GL_FUNC_SUBTRACT);
-      gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-      gl.setSwapInterval(1);
-      pgl.endGL();
-      // end blending setup
-    }
+//    void logoBlend() {
+//      // blending setup
+//      pgl = (PGraphicsOpenGL) g;
+//      gl = pgl.beginGL();
+//      gl.glDisable(GL.GL_DEPTH_TEST);
+//      gl.glEnable(GL.GL_BLEND);
+//      //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
+//      gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
+//      //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
+//      gl.glBlendEquationSeparate(GL.GL_FUNC_ADD, GL.GL_FUNC_SUBTRACT);
+//      gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);/
+//      gl.setSwapInterval(1);
+//      pgl.endGL();
+//      // end blending setup
+//    }
            
     void drawBlue(int offset, int angle){
-        pgl = (PGraphicsOpenGL) g;
-        gl = pgl.beginGL();
-        gl.glDisable(GL.GL_DEPTH_TEST);
-        gl.glEnable(GL.GL_BLEND);
-        gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_SUBTRACT);
-        gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-        gl.setSwapInterval(1);
-        pgl.endGL();
+//        pgl = (PGraphicsOpenGL) g;
+//        gl = pgl.beginGL();
+//        gl.glDisable(GL.GL_DEPTH_TEST);
+//        gl.glEnable(GL.GL_BLEND);
+//        gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_SUBTRACT);
+//        gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
+//        gl.setSwapInterval(1);
+//        pgl.endGL();
         
       // blue block and circle
       pushMatrix();
@@ -97,17 +97,17 @@ class Logo {
     }
     
     void drawOrange(int offset, int angle){
-        pgl = (PGraphicsOpenGL) g;
-        gl = pgl.beginGL();
-        gl.glDisable(GL.GL_DEPTH_TEST);
-        gl.glEnable(GL.GL_BLEND);
-        //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
-        gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
-        //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
-        gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_ADD);
-        gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
-        gl.setSwapInterval(1);
-        pgl.endGL();
+//        pgl = (PGraphicsOpenGL) g;
+//        gl = pgl.beginGL();
+//        gl.glDisable(GL.GL_DEPTH_TEST);
+//        gl.glEnable(GL.GL_BLEND);
+//        //gl.glBlendFunc(GL.GL_SRC_COLOR, GL.GL_ZERO);
+//        gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ZERO);
+//        //gl.glBlendFunc(GL.GL_DST_COLOR, GL.GL_ZERO);
+//        gl.glBlendEquationSeparate(GL.GL_FUNC_SUBTRACT, GL.GL_FUNC_ADD);
+//        gl.glBlendFuncSeparate(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA, GL.GL_ONE, GL.GL_ZERO);
+//        gl.setSwapInterval(1);
+//        pgl.endGL();
         
       // orange blocks
       pushMatrix();
